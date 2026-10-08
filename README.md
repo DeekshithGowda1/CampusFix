@@ -281,7 +281,6 @@ CampusFix/
 └── README.md
 ```
 
-> **Repository note:** The current GitHub `main` tree contains these Python modules at the repository root, while several source files import them through `services.*` and `components.*` namespaces. If your local working copy is flattened in the same way as the GitHub tree, align the imports/package directories before deployment (for example, either restore the `services/` and `components/` packages or update the imports consistently). The README intentionally documents the architecture reflected by the source code rather than silently hiding this discrepancy.
 
 ---
 
@@ -327,18 +326,11 @@ source .venv/bin/activate
 
 ### 3. Install dependencies
 
-The repository currently does not include a committed `requirements.txt`, so install the libraries used by the application:
+The repository includes `requirements.txt` with the application's runtime dependencies. Install them with:
 
 ```bash
-pip install streamlit sqlalchemy bcrypt python-dotenv pandas plotly
+pip install -r requirements.txt
 ```
-
-For reproducible deployments, generate and commit a dependency file after validating the working environment:
-
-```bash
-pip freeze > requirements.txt
-```
-
 ### 4. Configure environment variables
 
 Create a `.env` file in the project root:
@@ -551,8 +543,8 @@ The current repository is best treated as a **prototype / academic project / fun
 
 Known areas to address include:
 
-- Dependency file is not currently committed.
-- The GitHub tree and import namespaces should be aligned (`services.*` / `components.*` vs root-level modules).
+- Automated tests are not currently included in the repository.
+- Runtime behavior should still be validated locally or through deployment before production use.
 - Demo credentials are included in the current seed/demo workflow.
 - Default configuration contains a fallback secret and admin password.
 - SQLite is suitable for local development but is not the ideal production database for a multi-user institution.
@@ -569,10 +561,10 @@ These limitations do not change the project's core workflow; they identify the w
 
 ### Phase 1 — Project Hardening
 
-- [ ] Add `requirements.txt`
-- [ ] Add `.env.example`
-- [ ] Add `.gitignore`
-- [ ] Resolve package/import structure
+- [x] Add `requirements.txt`
+- [x] Add `.env.example`
+- [x] Add `.gitignore`
+- [x] Resolve package/import structure
 - [ ] Remove hard-coded demo secrets from production configuration
 - [ ] Add automated tests
 
@@ -626,7 +618,7 @@ Then open a pull request describing:
 
 **Status:** Functional prototype / academic project
 
-The repository contains the main application workflow for authentication, complaint submission, ticket management, role-based dashboards, analytics, feedback, and reporting. The next step toward a production-grade system is primarily engineering hardening: dependency management, package consistency, automated testing, authorization review, secure configuration, database migration, and deployment practices.
+The repository contains the main application workflow for authentication, complaint submission, ticket management, role-based dashboards, analytics, feedback, and reporting. The next step toward a production-grade system is primarily engineering hardening: automated testing, authorization review, secure configuration, database migration, and deployment practices.
 
 ---
 
