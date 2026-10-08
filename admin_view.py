@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 from config import COMPLAINT_CATEGORIES, PRIORITIES, STATUS_LIST
-from services.analytics_service import (
+from analytics_service import (
     get_summary_kpis,
     get_complaints_dataframe,
     create_category_pie_chart,
@@ -9,14 +9,14 @@ from services.analytics_service import (
     create_priority_donut_chart,
     get_staff_performance_dataframe
 )
-from services.complaint_service import (
+from complaint_service import (
     get_complaints,
     assign_complaint,
     update_complaint_status
 )
-from services.user_service import get_all_staff, get_all_users, create_staff_member
-from services.utils import export_to_csv, format_datetime
-from components.ui_elements import render_header, render_kpi_card, get_status_badge_html, get_priority_badge_html
+from user_service import get_all_staff, get_all_users, create_staff_member
+from utils import export_to_csv, format_datetime
+from ui_elements import render_header, render_kpi_card, get_status_badge_html, get_priority_badge_html
 
 def render_admin_view(current_user):
     """Renders Admin Dashboard & Operations Portal."""
