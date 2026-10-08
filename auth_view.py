@@ -1,5 +1,5 @@
 import streamlit as st
-from services.user_service import authenticate_user, register_student
+from user_service import authenticate_user, register_student
 from auth import login_user
 
 def render_auth_page():
