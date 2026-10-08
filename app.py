@@ -10,12 +10,12 @@ st.set_page_config(
 )
 
 from database import init_db
-from components.styles import apply_custom_css
+from styles import apply_custom_css
 from auth import get_current_user, logout_user
-from views.auth_view import render_auth_page
-from views.student_view import render_student_view
-from views.staff_view import render_staff_view
-from views.admin_view import render_admin_view
+from auth_view import render_auth_page
+from student_view import render_student_view
+from staff_view import render_staff_view
+from admin_view import render_admin_view
 
 def main():
     # Initialize Database & Seed Data
