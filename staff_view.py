@@ -1,13 +1,13 @@
 import os
 import streamlit as st
 from config import COMPLAINT_CATEGORIES, STATUS_LIST, PRIORITIES
-from services.complaint_service import (
+from complaint_service import (
     get_complaints,
     update_complaint_status,
     add_comment
 )
-from services.utils import format_datetime
-from components.ui_elements import render_header, render_kpi_card, get_status_badge_html, get_priority_badge_html, render_timeline
+from utils import format_datetime
+from ui_elements import render_header, render_kpi_card, get_status_badge_html, get_priority_badge_html, render_timeline
 
 def render_staff_view(current_user):
     """Renders Staff Portal Interface."""
