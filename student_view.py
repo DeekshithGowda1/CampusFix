@@ -1,7 +1,7 @@
 import os
 import streamlit as st
 from config import COMPLAINT_CATEGORIES, PRIORITIES, STATUS_LIST
-from services.complaint_service import (
+from complaint_service import (
     create_complaint,
     get_complaints,
     get_complaint_by_id,
@@ -9,8 +9,8 @@ from services.complaint_service import (
     submit_satisfaction_rating,
     add_comment
 )
-from services.utils import save_uploaded_file, format_datetime
-from components.ui_elements import render_header, render_kpi_card, get_status_badge_html, get_priority_badge_html, render_timeline
+from utils import save_uploaded_file, format_datetime
+from ui_elements import render_header, render_kpi_card, get_status_badge_html, get_priority_badge_html, render_timeline
 
 def render_student_view(current_user):
     """Renders Student Portal Interface."""
